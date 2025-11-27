@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐，亲爱的父亲！</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🎉 生日快乐 🎉</h1>
+        <h2 class="subtitle">亲爱的父亲</h2>
+        
+        <div class="cake-container">
+            <!-- 生日蛋糕 -->
+            <div class="cake">
+                <!-- 蜡烛 -->
+                <div class="candles">
+                    <div class="candle" data-candle="1">
+                        <div class="flame"></div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="2">
+                        <div class="flame"></div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="3">
+                        <div class="flame"></div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="4">
+                        <div class="flame"></div>
+                        <div class="wick"></div>
+                    </div>
+                    <div class="candle" data-candle="5">
+                        <div class="flame"></div>
+                        <div class="wick"></div>
+                    </div>
+                </div>
+                
+                <!-- 蛋糕层 -->
+                <div class="cake-layer layer-top">
+                    <div class="frosting"></div>
+                </div>
+                <div class="cake-layer layer-middle">
+                    <div class="frosting"></div>
+                </div>
+                <div class="cake-layer layer-bottom"></div>
+                
+                <!-- 装饰 -->
+                <div class="decorations">
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                    <span class="star">⭐</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="message">
+            <p>🎂 点击蜡烛来吹灭它们 🎂</p>
+            <p class="wish">愿您健康长寿，幸福安康！</p>
+        </div>
+
+        <div class="controls">
+            <button id="playBtn" class="btn">🎵 播放生日歌</button>
+            <button id="resetBtn" class="btn">🔄 重新点燃</button>
+        </div>
+
+        <div class="confetti-container" id="confetti"></div>
+    </div>
+
+    <audio id="birthdayAudio" loop>
+        <source src="happy-birthday.mp3" type="audio/mpeg">
+        <source src="happy-birthday.ogg" type="audio/ogg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
