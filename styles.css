@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: #ffe4e1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 蛋糕容器 */
+.cake-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+/* 蛋糕 */
+.cake {
+    position: relative;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 蜡烛 */
+.candles {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    top: -50px;
+    z-index: 10;
+}
+
+.candle {
+    width: 10px;
+    height: 60px;
+    background: linear-gradient(to bottom, #ff6b6b 0%, #ee5a6f 100%);
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.candle:hover {
+    transform: scale(1.1);
+}
+
+.candle.out {
+    opacity: 0.5;
+}
+
+.wick {
+    width: 2px;
+    height: 8px;
+    background: #333;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flame {
+    width: 16px;
+    height: 24px;
+    background: radial-gradient(ellipse at center, #fff 0%, #ffff00 20%, #ff9500 50%, #ff4500 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flicker 0.3s ease-in-out infinite alternate;
+}
+
+.candle.out .flame {
+    display: none;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.05) translateY(-2px); }
+}
+
+/* 蛋糕层 */
+.cake-layer {
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.layer-top {
+    height: 60px;
+    background: linear-gradient(to bottom, #ffb6c1 0%, #ff69b4 100%);
+    margin-bottom: 5px;
+}
+
+.layer-middle {
+    height: 70px;
+    background: linear-gradient(to bottom, #fff0f5 0%, #ffb6c1 100%);
+    margin-bottom: 5px;
+}
+
+.layer-bottom {
+    height: 80px;
+    background: linear-gradient(to bottom, #ffe4e1 0%, #ffc0cb 100%);
+}
+
+.frosting {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: repeating-linear-gradient(
+        90deg,
+        #fff 0px,
+        #fff 15px,
+        transparent 15px,
+        transparent 30px
+    );
+    border-radius: 50%;
+}
+
+.frosting::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: radial-gradient(circle at 50% 0%, #fff 40%, transparent 40%);
+    background-size: 30px 15px;
+    background-repeat: repeat-x;
+}
+
+/* 装饰 */
+.decorations {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* 消息 */
+.message {
+    margin: 40px 0 30px;
+    color: #fff;
+}
+
+.message p {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.wish {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    color: #ffe4e1;
+}
+
+/* 按钮 */
+.controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* 彩纸效果 */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #f0f;
+    top: -10px;
+    animation: confetti-fall 3s linear forwards;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .cake {
+        width: 250px;
+        transform: scale(0.9);
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+    }
+}
