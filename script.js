@@ -1,8 +1,6 @@
 // 获取元素
 const candles = document.querySelectorAll('.candle');
-const playBtn = document.getElementById('playBtn');
 const resetBtn = document.getElementById('resetBtn');
-const audio = document.getElementById('birthdayAudio');
 const confettiContainer = document.getElementById('confetti');
 
 let allCandlesOut = false;
@@ -64,22 +62,6 @@ function createConfetti() {
     }
 }
 
-// 播放音乐按钮
-playBtn.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play().catch(error => {
-            console.log('音频播放失败:', error);
-            alert('无法播放音频。请确保音频文件存在，或者点击页面后再试。\n音频文件应命名为: happy-birthday.mp3');
-        });
-        playBtn.textContent = '⏸️ 暂停音乐';
-        playBtn.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
-    } else {
-        audio.pause();
-        playBtn.textContent = '🎵 播放生日歌';
-        playBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-    }
-});
-
 // 重新点燃按钮
 resetBtn.addEventListener('click', () => {
     candles.forEach(candle => {
@@ -98,21 +80,8 @@ resetBtn.addEventListener('click', () => {
     });
 });
 
-// 自动播放音乐（页面加载后）
+// 页面加载动画
 window.addEventListener('load', () => {
-    // 尝试自动播放（某些浏览器可能会阻止）
-    const playPromise = audio.play();
-    
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            playBtn.textContent = '⏸️ 暂停音乐';
-            playBtn.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
-        }).catch(error => {
-            // 自动播放被阻止，用户需要手动点击播放
-            console.log('自动播放被阻止，请手动点击播放按钮');
-        });
-    }
-    
     // 添加进入动画
     document.querySelector('.container').style.animation = 'fadeIn 1s ease-in';
 });
@@ -135,12 +104,6 @@ document.head.appendChild(style);
 
 // 键盘快捷键
 document.addEventListener('keydown', (e) => {
-    // 按空格键播放/暂停音乐
-    if (e.code === 'Space') {
-        e.preventDefault();
-        playBtn.click();
-    }
-    
     // 按R键重新点燃蜡烛
     if (e.code === 'KeyR') {
         resetBtn.click();
