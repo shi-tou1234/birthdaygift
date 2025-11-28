@@ -33,7 +33,7 @@ body {
     font-size: 2rem;
     color: #ffe4e1;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 @keyframes bounce {
@@ -45,7 +45,7 @@ body {
 .cake-container {
     display: flex;
     justify-content: center;
-    margin: 40px 0;
+    margin: 60px 0 40px;
 }
 
 /* 蛋糕 */
